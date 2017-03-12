@@ -22,3 +22,9 @@
     (is (= '(6) (rpn '(3 2 *))))
     (is (= '(6) (rpn '(12 2 /)))))
   )
+
+(deftest given-combined-operators
+  (testing "given a cobined operators should apply each operation with his operands and return the result"
+    (is (= '(9) (rpn '(1 2 + 3 *))))
+    )
+  )
