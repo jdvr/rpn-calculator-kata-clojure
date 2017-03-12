@@ -3,5 +3,7 @@
             [rpn-kata-clojure.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "given a digit should return the same digit"
+    (is (= '(1) (rpn '(1))))
+    )
+  )
