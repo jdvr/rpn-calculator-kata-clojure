@@ -16,5 +16,9 @@
   (testing "given a sum with two digits should return the sum of digits"
     (is (= '(3) (rpn '(1 2 +))))
     )
-
+  (testing "given an operation with two digits should return the result of the operation with digits"
+    (is (= '(3) (rpn '(1 2 +))))
+    (is (= '(3) (rpn '(5 2 -))))
+    (is (= '(6) (rpn '(3 2 *))))
+    (is (= '(6) (rpn '(12 2 /)))))
   )
