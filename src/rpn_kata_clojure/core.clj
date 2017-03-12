@@ -4,6 +4,8 @@
 (defn- is-operation? [e]
   (or (= '+ e) (= '/ e) (= '* e) (= '- e)))
 
+(def penultimate (comp second reverse))
+
 (def operation-fn {
                    '+ +
                    '- -
@@ -12,9 +14,9 @@
                    })
 
 (defn rpn [expession]
-  (reduce (fn [acc e]
+  (reduce (fn [stack e]
             (if (is-operation? e)
-              (conj (pop (pop acc)) (apply (operation-fn  e)  [(nth (reverse acc) 1) (last acc)]))
-              (conj acc e))
+              (conj (pop (pop stack)) (apply (operation-fn  e)  [(penultimate stack) (last stack)]))
+              (conj stack e))
             )
           [] expession))
