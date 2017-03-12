@@ -24,7 +24,7 @@
   )
 
 (deftest given-combined-operators
-  (testing "given a cobined operators should apply each operation with his operands and return the result"
+  (testing "given a combained operators should apply each operation with his operands and return the result"
     (is (= '(9) (rpn '(1 2 + 3 *))))
     )
   )

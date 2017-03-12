@@ -14,7 +14,7 @@
 (defn rpn [expession]
   (reduce (fn [acc e]
             (if (is-operation? e)
-              (conj [] (apply (operation-fn  e) acc))
+              (conj (pop (pop acc)) (apply (operation-fn  e)  [(nth (reverse acc) 1) (last acc)]))
               (conj acc e))
             )
           [] expession))
