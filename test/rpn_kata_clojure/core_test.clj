@@ -28,3 +28,12 @@
     (is (= '(9) (rpn '(1 2 + 3 *))))
     )
   )
+
+(deftest suggested-test-cases
+  (testing "check the given scenarios"
+    (is (= '(4) (rpn '(20 5 /))))
+    (is (= '(3) (rpn '(4 2 + 3 -))))
+    (is (= '(141) (rpn '(3 5 8 * 7 + *))))
+    (is (= '(5 3 4) (rpn '(7 2 - 3 4))))
+    )
+  )
