@@ -6,6 +6,8 @@
 
 (def penultimate (comp second reverse))
 
+(def push conj)
+
 (def operation-fn {
                    '+ +
                    '- -
@@ -13,10 +15,11 @@
                    '/ /
                    })
 
+
 (defn rpn [expession]
   (reduce (fn [stack e]
             (if (is-operation? e)
-              (conj (pop (pop stack)) (apply (operation-fn  e)  [(penultimate stack) (last stack)]))
-              (conj stack e))
+              (push (pop (pop stack)) (apply (operation-fn e) [(penultimate stack) (last stack)]))
+              (push stack e))
             )
           [] expession))
